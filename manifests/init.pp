@@ -27,7 +27,7 @@
 #
 # [*password*]
 #   The password to set for the user.
-#   The default is to disable the password.
+#   The default is to not manage the user's password.
 #
 # [*shell*]
 #   The user's default login shell.
@@ -104,7 +104,7 @@
 # Copyright 2013 Tray Torrance, unless otherwise noted
 #
 define account(
-  $username = $title, $password = '!', $shell = '/bin/bash',
+  $username = $title, $password = undef, $shell = '/bin/bash',
   $manage_home = true, $home_dir = undef,  $home_dir_perms = '0750',
   $create_group = true, $system = false, $uid = undef, $ssh_key = undef,
   $ssh_key_type = 'ssh-rsa', $groups = [], $ensure = present, $purge = false,
@@ -219,4 +219,3 @@ define account(
     }
   }
 }
-
